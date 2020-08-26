@@ -124,6 +124,8 @@ function sample() {
         // last_name: 'HomeDepot',
         // user_attributes: {'org': "Home Depot"},
 		//
+		//
+        // group_ids: [8], // Embed-Users-Group
         group_ids: [6],
         external_user_id: 'fs-1',
         last_name: 'FusionSeven',
@@ -137,8 +139,9 @@ function sample() {
         // group_ids: [5], // 5: HomeDepot
         external_group_id: 'awesome_engineers',
         // permissions: ['see_user_dashboards', 'see_lookml_dashboards', 'access_data', 'see_looks'],
+        permissions: ["access_data","see_looks","see_user_dashboards","see_lookml_dashboards", "download_with_limit","download_without_limit","see_drill_overlay","save_content"],
         // permissions: ['access_data', 'download_without_limit', 'schedule_look_emails', 'see_drill_overlay', 'see_lookml_dashboards', 'see_looks', 'see_user_dashboards', 'send_to_integration'],
-        permissions: ["access_data","see_looks","see_user_dashboards","see_lookml_dashboards","explore","create_table_calculations","download_with_limit","download_without_limit","see_drill_overlay","save_content","embed_browse_spaces","schedule_look_emails","schedule_external_look_emails","send_to_sftp","send_to_s3","send_outgoing_webhook","see_sql","send_to_integration","create_alerts"],
+        // permissions: ["access_data","see_looks","see_user_dashboards","see_lookml_dashboards","explore","create_table_calculations","download_with_limit","download_without_limit","see_drill_overlay","save_content","embed_browse_spaces","schedule_look_emails","schedule_external_look_emails","send_to_sftp","send_to_s3","send_outgoing_webhook","see_sql","send_to_integration","create_alerts"],
         // models: ['thelook'],
         // models: ['users'],
         // models: ['accelitas_model'],
