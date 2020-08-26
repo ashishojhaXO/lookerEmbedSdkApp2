@@ -117,11 +117,23 @@ function sample() {
         // secret: '8ea3be011d0668741234216e06845692bab69e0101d00dcfe399dae03c52513c',
         secret: config.secret,
         // external_user_id: 'test-id-10',
-        external_user_id: 'hd-1',
         first_name: 'Tester',
-        last_name: 'HomeDepot',
-        user_attributes: {'org': "Home Depot"},
-        group_ids: [5],
+
+        // group_ids: [5],
+        // external_user_id: 'hd-1',
+        // last_name: 'HomeDepot',
+        // user_attributes: {'org': "Home Depot"},
+		//
+        group_ids: [6],
+        external_user_id: 'fs-1',
+        last_name: 'FusionSeven',
+        user_attributes: {'org': "FusionSeven"},
+
+        // group_ids: [4],
+        // external_user_id: 'oa-1',
+        // last_name: 'OrgAdmin',
+        // user_attributes: {'org': "org_admin"},
+
         // group_ids: [5], // 5: HomeDepot
         external_group_id: 'awesome_engineers',
         // permissions: ['see_user_dashboards', 'see_lookml_dashboards', 'access_data', 'see_looks'],
@@ -130,7 +142,8 @@ function sample() {
         // models: ['thelook'],
         // models: ['users'],
         // models: ['accelitas_model'],
-        models: ["accelitas_model"],
+        // models: ["accelitas_model", "input"],
+		models: ["accelitas_model","aspen_looker_db","Monthly_Spend"],
         // access_filters: {
         //     fake_model: {
         //         id: 1
@@ -143,6 +156,7 @@ function sample() {
         // embed_url: "/embed/dashboards/7?embed_domain=http://localhost:1337",
         // embed_url: "/embed/dashboards/9?embed_domain=http://localhost:1337",
         embed_url: "/embed/dashboards/15?embed_domain=http://localhost:1337",
+        // embed_url: "/embed/dashboards/15",
         force_logout_login: true,
 
 	// Add
