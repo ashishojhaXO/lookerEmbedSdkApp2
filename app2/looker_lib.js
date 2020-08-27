@@ -10,7 +10,8 @@
 // https://accelitas.cloud.looker.com/login/embed/%2Fembed%2Fdashboards%2F7?nonce=%22tO36J7aTckjJX9QK%22&time=1598282889&session_length=600&external_user_id=%22test-id-123%22&permissions=%5B%22access_data%22%2C%22see_looks%22%2C%22see_user_dashboards%22%2C%22see_lookml_dashboards%22%2C%22explore%22%2C%22create_table_calculations%22%2C%22download_with_limit%22%2C%22download_without_limit%22%2C%22see_drill_overlay%22%2C%22save_content%22%2C%22embed_browse_spaces%22%2C%22schedule_look_emails%22%2C%22schedule_external_look_emails%22%2C%22send_to_sftp%22%2C%22send_to_s3%22%2C%22send_outgoing_webhook%22%2C%22see_sql%22%2C%22send_to_integration%22%2C%22create_alerts%22%5D&models=%5B%22accelitas_model%22%5D&group_ids=%5B%5D&external_group_id=%22%22&user_attributes=%7B%7D&access_filters=%7B%7D&first_name=%22Testy%22&last_name=%22McTestFace%22&force_logout_login=true&signature=rFzXt4RQ6qgeYunajPe1meUv0TA%3D
 
 var config = {
-	secret: "1ee8c60506843bac4a222dd362c354f4774045526b6feba37ee70158e4f9f136",
+	// secret: "1ee8c60506843bac4a222dd362c354f4774045526b6feba37ee70158e4f9f136",
+	secret: "d03f1bd744e0f66e5bc68672b54bd26e8f40329aaaa050a7e1ea2ccf2a9321ba",
 }
 
 function nonce(len) {
@@ -182,14 +183,14 @@ function createHtmlBody(src) {
 }
 
 
-var url = sample();
-
-console.log('Created url: ' + url);
 
 var http = require('http');
 
 http.createServer(function (req, res) {
   res.writeHead(200, {'Content-Type': 'text/html'});
+
+	var url = sample();
+	console.log('Created url: ' + url);
 
   // res.end("<a href='" + url + "'>" + url + "</a>");
   res.end( createHtmlBody(url) );
