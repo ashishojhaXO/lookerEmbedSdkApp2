@@ -118,12 +118,13 @@ function sample() {
         // secret: '8ea3be011d0668741234216e06845692bab69e0101d00dcfe399dae03c52513c',
         secret: config.secret,
         // external_user_id: 'test-id-10',
+        first_name: 'Tester',
 
-        // group_ids: [5],
-        // external_user_id: 'hd-1',
-        // last_name: 'HomeDepot',
-        // user_attributes: {'org': "Home Depot"},
-        // permissions: ["access_data","see_looks","see_user_dashboards","see_lookml_dashboards", "download_with_limit","download_without_limit","see_drill_overlay","save_content"],
+        group_ids: [5],
+        external_user_id: 'hd-1',
+        last_name: 'HomeDepot',
+        user_attributes: {'org': "Home Depot"},
+        permissions: ["access_data","see_looks","see_user_dashboards","see_lookml_dashboards", "download_with_limit","download_without_limit","see_drill_overlay","save_content"],
 		//
 		//
         // group_ids: [8], // Embed-Users-Group
@@ -133,12 +134,11 @@ function sample() {
         // user_attributes: {'org': "FusionSeven"},
         // permissions: ["access_data","see_looks","see_user_dashboards","see_lookml_dashboards", "download_with_limit","download_without_limit","see_drill_overlay","save_content"],
 
-        group_ids: [4],
-        external_user_id: 'oa-1',
-        first_name: 'Tester',
-        last_name: 'OrgAdmin',
-        user_attributes: {'org': "org_admin"},
-        permissions: ["access_data","see_looks","see_user_dashboards","see_lookml_dashboards","explore","create_table_calculations","download_with_limit","download_without_limit","see_drill_overlay","save_content","embed_browse_spaces","schedule_look_emails","schedule_external_look_emails","send_to_sftp","send_to_s3","send_outgoing_webhook","see_sql","send_to_integration","create_alerts"],
+        // group_ids: [4],
+        // external_user_id: 'oa-1',
+        // last_name: 'OrgAdmin',
+        // user_attributes: {'org': "org_admin"},
+        // permissions: ["access_data","see_looks","see_user_dashboards","see_lookml_dashboards","explore","create_table_calculations","download_with_limit","download_without_limit","see_drill_overlay","save_content","embed_browse_spaces","schedule_look_emails","schedule_external_look_emails","send_to_sftp","send_to_s3","send_outgoing_webhook","see_sql","send_to_integration","create_alerts"],
 
         // group_ids: [5], // 5: HomeDepot
         external_group_id: 'awesome_engineers',
