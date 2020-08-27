@@ -118,31 +118,32 @@ function sample() {
         // secret: '8ea3be011d0668741234216e06845692bab69e0101d00dcfe399dae03c52513c',
         secret: config.secret,
         // external_user_id: 'test-id-10',
-        first_name: 'Tester',
 
         // group_ids: [5],
         // external_user_id: 'hd-1',
         // last_name: 'HomeDepot',
         // user_attributes: {'org': "Home Depot"},
+        // permissions: ["access_data","see_looks","see_user_dashboards","see_lookml_dashboards", "download_with_limit","download_without_limit","see_drill_overlay","save_content"],
 		//
 		//
         // group_ids: [8], // Embed-Users-Group
-        group_ids: [6],
-        external_user_id: 'fs-1',
-        last_name: 'FusionSeven',
-        user_attributes: {'org': "FusionSeven"},
+        // group_ids: [6],
+        // external_user_id: 'fs-1',
+        // last_name: 'FusionSeven',
+        // user_attributes: {'org': "FusionSeven"},
+        // permissions: ["access_data","see_looks","see_user_dashboards","see_lookml_dashboards", "download_with_limit","download_without_limit","see_drill_overlay","save_content"],
 
-        // group_ids: [4],
-        // external_user_id: 'oa-1',
-        // last_name: 'OrgAdmin',
-        // user_attributes: {'org': "org_admin"},
+        group_ids: [4],
+        external_user_id: 'oa-1',
+        first_name: 'Tester',
+        last_name: 'OrgAdmin',
+        user_attributes: {'org': "org_admin"},
+        permissions: ["access_data","see_looks","see_user_dashboards","see_lookml_dashboards","explore","create_table_calculations","download_with_limit","download_without_limit","see_drill_overlay","save_content","embed_browse_spaces","schedule_look_emails","schedule_external_look_emails","send_to_sftp","send_to_s3","send_outgoing_webhook","see_sql","send_to_integration","create_alerts"],
 
         // group_ids: [5], // 5: HomeDepot
         external_group_id: 'awesome_engineers',
         // permissions: ['see_user_dashboards', 'see_lookml_dashboards', 'access_data', 'see_looks'],
-        permissions: ["access_data","see_looks","see_user_dashboards","see_lookml_dashboards", "download_with_limit","download_without_limit","see_drill_overlay","save_content"],
         // permissions: ['access_data', 'download_without_limit', 'schedule_look_emails', 'see_drill_overlay', 'see_lookml_dashboards', 'see_looks', 'see_user_dashboards', 'send_to_integration'],
-        // permissions: ["access_data","see_looks","see_user_dashboards","see_lookml_dashboards","explore","create_table_calculations","download_with_limit","download_without_limit","see_drill_overlay","save_content","embed_browse_spaces","schedule_look_emails","schedule_external_look_emails","send_to_sftp","send_to_s3","send_outgoing_webhook","see_sql","send_to_integration","create_alerts"],
         // models: ['thelook'],
         // models: ['users'],
         // models: ['accelitas_model'],
@@ -159,7 +160,10 @@ function sample() {
         // embed_url: "/embed/dashboards/7",
         // embed_url: "/embed/dashboards/7?embed_domain=http://localhost:1337",
         // embed_url: "/embed/dashboards/9?embed_domain=http://localhost:1337",
+		//
         embed_url: "/embed/dashboards/15?embed_domain=http://localhost:1337",
+        // embed_url: "/embed/dashboards/15?embed_domain=localhost:1337",
+        // embed_url: "/embed/dashboards/15?embed_domain=http://local.accelitas.looker.com:1337/",
         // embed_url: "/embed/dashboards/15",
         force_logout_login: true,
 
@@ -174,11 +178,12 @@ function sample() {
 }
 
 function createHtmlBody(src) {
-    var html = "";
+    var html = "<!DOCTYPE html><html><body>";
     var html = "<a href='" + src + "'>" + src + "</a> <br> <br> <br>";
     // let testUrl = 'https://accelitas.cloud.looker.com/login/embed/%2Fembed%2Flooks%2F1?nonce=%22W0dLUPdQbURYbf2G%22&time=1598037982&session_length=600&external_user_id=%22test-id-1234%22&permissions=%5B%22access_data%22%2C%22see_looks%22%5D&models=%5B%22user%22%5D&group_ids=%5B%5D&external_group_id=%22%22&user_attributes=%7B%7D&access_filters=%7B%7D&first_name=%22Testy%22&last_name=%22McTestFace%22&force_logout_login=true&signature=R48uuG%2BdqKOraXELAa17RnUrldY%3D';
 	// html += "<iframe src='"+testUrl+"' height='700' width='1200'></iframe>";
 	html += "<iframe src='"+src+"' height='700' width='1200'></iframe>";
+	html += "</body></html>";
 	return html;
 }
 
@@ -187,6 +192,10 @@ function createHtmlBody(src) {
 var http = require('http');
 
 http.createServer(function (req, res) {
+
+	var url = sample();
+	console.log('Created url: ' + url + "\n\n");
+
   res.writeHead(200, {'Content-Type': 'text/html'});
 
 	var url = sample();
