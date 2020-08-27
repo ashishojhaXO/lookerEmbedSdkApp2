@@ -120,19 +120,19 @@ function sample() {
         // external_user_id: 'test-id-10',
         first_name: 'Tester',
 
-        group_ids: [5],
-        external_user_id: 'hd-1',
-        last_name: 'HomeDepot',
-        user_attributes: {'org': "Home Depot"},
-        permissions: ["access_data","see_looks","see_user_dashboards","see_lookml_dashboards", "download_with_limit","download_without_limit","see_drill_overlay","save_content"],
+        // group_ids: [5],
+        // external_user_id: 'hd-1',
+        // last_name: 'HomeDepot',
+        // user_attributes: {'org': "Home Depot"},
+        // permissions: ["access_data","see_looks","see_user_dashboards","see_lookml_dashboards", "download_with_limit","download_without_limit","see_drill_overlay","save_content"],
 		//
 		//
         // group_ids: [8], // Embed-Users-Group
-        // group_ids: [6],
-        // external_user_id: 'fs-1',
-        // last_name: 'FusionSeven',
-        // user_attributes: {'org': "FusionSeven"},
-        // permissions: ["access_data","see_looks","see_user_dashboards","see_lookml_dashboards", "download_with_limit","download_without_limit","see_drill_overlay","save_content"],
+        group_ids: [6],
+        external_user_id: 'fs-1',
+        last_name: 'FusionSeven',
+        user_attributes: {'org': "FusionSeven"},
+        permissions: ["access_data","see_looks","see_user_dashboards","see_lookml_dashboards", "download_with_limit","download_without_limit","see_drill_overlay","save_content"],
 
         // group_ids: [4],
         // external_user_id: 'oa-1',
@@ -192,14 +192,15 @@ function createHtmlBody(src) {
 var http = require('http');
 
 http.createServer(function (req, res) {
+  	res.writeHead(200, {'Content-Type': 'text/html'});
 
-  res.writeHead(200, {'Content-Type': 'text/html'});
-
+	console.log('SERVER');
 	var url = sample();
 	console.log('Created url: ' + url);
+	var html = createHtmlBody(url);
 
   // res.end("<a href='" + url + "'>" + url + "</a>");
-  res.end( createHtmlBody(url) );
+  res.end( html );
 
 }).listen(1337, '127.0.0.1');
 
