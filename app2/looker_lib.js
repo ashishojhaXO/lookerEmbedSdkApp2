@@ -128,17 +128,27 @@ function sample() {
 		//
 		//
         // group_ids: [8], // Embed-Users-Group
-        group_ids: [6],
-        external_user_id: 'fs-1',
-        last_name: 'FusionSeven',
-        user_attributes: {'org': "FusionSeven"},
-        permissions: ["access_data","see_looks","see_user_dashboards","see_lookml_dashboards", "download_with_limit","download_without_limit","see_drill_overlay","save_content"],
+        // group_ids: [6],
+        // external_user_id: 'fs-1',
+        // last_name: 'FusionSeven',
+        // user_attributes: {'org': "FusionSeven"},
+        // permissions: ["access_data","see_looks","see_user_dashboards","see_lookml_dashboards", "download_with_limit","download_without_limit","see_drill_overlay","save_content"],
 
         // group_ids: [4],
         // external_user_id: 'oa-1',
         // last_name: 'OrgAdmin',
         // user_attributes: {'org': "org_admin"},
         // permissions: ["access_data","see_looks","see_user_dashboards","see_lookml_dashboards","explore","create_table_calculations","download_with_limit","download_without_limit","see_drill_overlay","save_content","embed_browse_spaces","schedule_look_emails","schedule_external_look_emails","send_to_sftp","send_to_s3","send_outgoing_webhook","see_sql","send_to_integration","create_alerts"],
+
+
+        // Any group, even he has all access, the data will still be filtered according to the `org` passed in attributes
+		// We might not need to keep creating Different Groups for Different Org.
+		group_ids: [6],
+        external_user_id: 'random-1',
+        last_name: 'Random',
+        user_attributes: {'org': "Home Depot"},
+        permissions: ["access_data","see_looks","see_user_dashboards","see_lookml_dashboards","explore","create_table_calculations","download_with_limit","download_without_limit","see_drill_overlay","save_content","embed_browse_spaces","schedule_look_emails","schedule_external_look_emails","send_to_sftp","send_to_s3","send_outgoing_webhook","see_sql","send_to_integration","create_alerts"],
+
 
         // group_ids: [5], // 5: HomeDepot
         external_group_id: 'awesome_engineers',
