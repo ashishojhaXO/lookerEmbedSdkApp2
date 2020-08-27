@@ -193,9 +193,6 @@ var http = require('http');
 
 http.createServer(function (req, res) {
 
-	var url = sample();
-	console.log('Created url: ' + url + "\n\n");
-
   res.writeHead(200, {'Content-Type': 'text/html'});
 
 	var url = sample();
