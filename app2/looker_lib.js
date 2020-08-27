@@ -194,7 +194,7 @@ var http = require('http');
 http.createServer(function (req, res) {
   	res.writeHead(200, {'Content-Type': 'text/html'});
 
-	console.log('SERVER');
+	console.log('SERVER', req.url);
 	var url = sample();
 	console.log('Created url: ' + url);
 	var html = createHtmlBody(url);
