@@ -197,21 +197,41 @@ function createHtmlBody(src) {
 	return html;
 }
 
+function sendHtml(req, res, url) {
+	console.log('SERVER', req.url);
+	console.log('Created url: ' + url);
+
+	var html = createHtmlBody(url);
+
+  	res.writeHead(200, {'Content-Type': 'text/html'});
+	return html;
+}
+
+function sendJson(req, res, url) {
+	var json = {'data': url};
+	json = JSON.stringify(json);
+
+
+  	res.writeHead(200, {
+		'Content-Type': 'application/json',
+		'Access-Control-Allow-Headers': "*",
+		'Access-Control-Allow-Origin': "*",
+	});
+
+	console.log('SERVER url: ', req.url);
+	console.log('json: ', json);
+	return json;
+}
+
 
 
 var http = require('http');
 
 http.createServer(function (req, res) {
-  	res.writeHead(200, {'Content-Type': 'text/html'});
-
-	console.log('SERVER', req.url);
 	var url = sample();
-	console.log('Created url: ' + url);
-	var html = createHtmlBody(url);
-
-  // res.end("<a href='" + url + "'>" + url + "</a>");
-  res.end( html );
-
+	// var ret = sendHtml(req, res, url);
+	var ret = sendJson(req, res, url);
+  	res.end( ret );
 }).listen(1337, '127.0.0.1');
 
 console.log('Server running at http://127.0.0.1:1337/');
