@@ -1,6 +1,22 @@
  var crypto = require('crypto');
  var querystring = require('querystring')
 
+const bodyParser = require('body-parser')
+
+
+
+app.use(
+	bodyParser.urlencoded({
+  		extended: true
+	})
+)
+
+app.use(bodyParser.json())
+
+app.post('/todos', (req, res) => {
+	console.log(req.body.todo)
+})
+
 // Eg URL to be craeted
 // https://accelitas.cloud.looker.com/login/embed/%2Fembed%2Flooks%2F1?nonce=%22W0dLUPdQbURYbf2G%22&time=1598037982&session_length=600&external_user_id=%22test-id-123%22&permissions=%5B%22access_data%22%2C%22see_looks%22%5D&models=%5B%22user%22%5D&group_ids=%5B%5D&external_group_id=%22%22&user_attributes=%7B%7D&access_filters=%7B%7D&first_name=%22Testy%22&last_name=%22McTestFace%22&force_logout_login=true&signature=R48uuG%2BdqKOraXELAa17RnUrldY%3D
 
@@ -222,6 +238,7 @@ function sendJson(req, res, url) {
 
 	console.log('SERVER url: ', req.url);
 	console.log('json: ', json);
+	console.log('SERVER REQQQ: ', " Meth: ", req.method, " body: ", req.body, " data: ", req.data);
 	return json;
 }
 
