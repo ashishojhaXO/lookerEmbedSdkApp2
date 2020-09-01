@@ -143,10 +143,11 @@ function sample() {
 
         // Any group, even he has all access, the data will still be filtered according to the `org` passed in attributes
 		// We might not need to keep creating Different Groups for Different Org.
-		group_ids: [6],
+	group_ids: [6],
         external_user_id: 'random-1',
         last_name: 'Random',
         user_attributes: {'org': "Home Depot"},
+        // permissions: ['see_user_dashboards', 'see_lookml_dashboards', 'see_looks'],
         permissions: ["access_data","see_looks","see_user_dashboards","see_lookml_dashboards","explore","create_table_calculations","download_with_limit","download_without_limit","see_drill_overlay","save_content","embed_browse_spaces","schedule_look_emails","schedule_external_look_emails","send_to_sftp","send_to_s3","send_outgoing_webhook","see_sql","send_to_integration","create_alerts"],
 
 
@@ -158,7 +159,7 @@ function sample() {
         // models: ['users'],
         // models: ['accelitas_model'],
         // models: ["accelitas_model", "input"],
-		models: ["accelitas_model","aspen_looker_db","Monthly_Spend"],
+	models: ["accelitas_model","aspen_looker_db", "aspen_homd_looker_db","Monthly_Spend"],
         // access_filters: {
         //     fake_model: {
         //         id: 1
@@ -172,6 +173,7 @@ function sample() {
         // embed_url: "/embed/dashboards/9?embed_domain=http://localhost:1337",
 		//
         embed_url: "/embed/dashboards/15?embed_domain=http://localhost:1337",
+        // embed_url: "/embed/dashboards/9?embed_domain=http://localhost:1337",
         // embed_url: "/embed/dashboards/15?embed_domain=localhost:1337",
         // embed_url: "/embed/dashboards/15?embed_domain=http://local.accelitas.looker.com:1337/",
         // embed_url: "/embed/dashboards/15",
