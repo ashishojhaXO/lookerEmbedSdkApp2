@@ -1,21 +1,24 @@
  var crypto = require('crypto');
  var querystring = require('querystring')
 
-const bodyParser = require('body-parser')
 
 
+// Express part
+const express = require('express');
+const cors = require('cors');
+const bodyParser = require('body-parser');
 
-app.use(
-	bodyParser.urlencoded({
-  		extended: true
-	})
-)
+const app = express();
+app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use(bodyParser.json())
+app.options('/', cors());
+app.post('/', cors(), (req, res) => {
+    	console.log('Got body:', req.body, req);
+	res.sendStatus(200);
+});
 
-app.post('/todos', (req, res) => {
-	console.log(req.body.todo)
-})
+// Express part-
+
 
 // Eg URL to be craeted
 // https://accelitas.cloud.looker.com/login/embed/%2Fembed%2Flooks%2F1?nonce=%22W0dLUPdQbURYbf2G%22&time=1598037982&session_length=600&external_user_id=%22test-id-123%22&permissions=%5B%22access_data%22%2C%22see_looks%22%5D&models=%5B%22user%22%5D&group_ids=%5B%5D&external_group_id=%22%22&user_attributes=%7B%7D&access_filters=%7B%7D&first_name=%22Testy%22&last_name=%22McTestFace%22&force_logout_login=true&signature=R48uuG%2BdqKOraXELAa17RnUrldY%3D
@@ -238,19 +241,22 @@ function sendJson(req, res, url) {
 
 	console.log('SERVER url: ', req.url);
 	console.log('json: ', json);
+	console.log('bodyParser: ', bodyParser, bodyParser.json() );
 	console.log('SERVER REQQQ: ', " Meth: ", req.method, " body: ", req.body, " data: ", req.data);
 	return json;
 }
 
 
 
-var http = require('http');
+//var http = require('http');
+//http.createServer(function (req, res) {
+//	var url = sample();
+//	// var ret = sendHtml(req, res, url);
+//	var ret = sendJson(req, res, url);
+//  	res.end( ret );
+//}).listen(1337, '127.0.0.1');
+//console.log('Server running at http://127.0.0.1:1337/');
 
-http.createServer(function (req, res) {
-	var url = sample();
-	// var ret = sendHtml(req, res, url);
-	var ret = sendJson(req, res, url);
-  	res.end( ret );
-}).listen(1337, '127.0.0.1');
-
-console.log('Server running at http://127.0.0.1:1337/');
+// Express part
+app.listen(1337, () => console.log(`Started server at http://localhost:1337!`));
+// Express part-
